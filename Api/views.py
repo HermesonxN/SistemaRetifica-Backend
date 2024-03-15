@@ -23,6 +23,7 @@ def login(request):
         else:
             return Response('Usúario e/ou senha incorretos!', status=status.HTTP_403_FORBIDDEN)
 
+@api_view(['GET'])
 def logout(request):
     logout_django(request)
     return Response('Usúario deslogado', status=status.HTTP_200_OK)
