@@ -63,6 +63,14 @@ def registerService(request):
         return Response("Serviço registrado com sucesso!", status=status.HTTP_201_CREATED)
 
 @api_view(['GET'])
+def filterService(request, query):
+    service = Services.objects.filter(order_of_service__icontains=query)
+    serialized_service = ServiceSerializer(service, many=True)
+    if not serialized_service:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    return Response(serialized_service.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
 def logout(request):
     logout_django(request)
     return Response('Usúario deslogado', status=status.HTTP_200_OK)

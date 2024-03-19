@@ -2,7 +2,7 @@ from django.db import models
 
 class Services(models.Model):
     client_name = models.CharField("Nome do cliente", max_length=255, null=False, blank=False)
-    client_contact = models.CharField("Contatodo cliente", max_length=255, null=False, blank=False)
+    client_contact = models.CharField("Contato do cliente", max_length=255, null=False, blank=False)
     head_model = models.CharField("Modelo do cabeçote", max_length=255, null=False, blank=False)
     start_date = models.DateField("Data de ínicio", null=False, blank=False)
     order_of_service = models.CharField("Ordem de serviço", primary_key=True, max_length=255, null=False, blank=False)
